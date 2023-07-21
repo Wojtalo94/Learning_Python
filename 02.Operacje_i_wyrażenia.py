@@ -181,4 +181,94 @@ print("\n------------------------------------------------------------------\n")
 
 print("5) Własne klasy.")
 
+# Wykonamy funkcję która definiuje odległość pomiędzy dwoma punktami na płaszczyźnie.
+# sqrt - funkcja wyciągania pierwiastka kwadratowego, znajdującego się w pakiecie math, więc musimy ją zaimportować
 
+from math import sqrt
+
+
+def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    return sqrt(dx*dx + dy*dy)
+
+
+print("Wynik to: " + str(distance(0, 0, 3, 4)))
+# Wynik powinien być 5.0.
+
+# Utwórzmy klasę "Point" i ta klasa powinna mieć konstruktora, po to abyśmy mogli tworzyć obiekty tej klasy. Ale kiedy odwołujemy się do konstruktora, to wywołujemy go po imieniu, które pokrywa się z imieniem klasy, ale w trakcie definiowania konstruktora ma on specjalną nazwę "init" otoczoną z dwóch stron podwójnym podkreśleniem.
+
+from math import sqrt
+
+# Teraz parametry konstruktora.
+# 1. Obiekt który jest konstruowany (self)
+# 2. Chcemy konstruować punkty przekazując 2 parametry współrzędne x i y
+class Point:
+    def __init__(self, x, y):
+# Te wartości które są przekazywane w parametrach x i y, musimy przypisać do atrybutów do obiektu self.
+# self.x = x to dwie całkiem różne jednostki.
+# x - w tym wypadku to jest zmienna parametr, w niej mieści się ta wartość, którą przekazujemy w wywołaniu na końcu funkcji
+# x przy (self.x) - to jest atrybut przy self, nazwa atrybutu (x) zawsze jest poprzedzana nazwą obietku (self), a atrybut jest częścią obiektu, częścią klasy
+        self.x = x
+        self.y = y
+
+# Konstruktor jest gotowy.
+
+
+# Teraz stwórzmy na nowo funkcję, która wylicza odległość. Aby w charakterze parametrów przyjmowa nie cztery liczby jak wcześniej (x1, y1, x2, y2), a dwa punkty (p1, p2), dwa obiekty typu point.
+# Teraz pracujemy nie z liczbami, a z obiektami.
+def distance(p1, p2):
+    dx = p2.x - p1.x
+    dy = p2.y - p1.y
+    return sqrt(dx*dx + dy*dy)
+# Gdy otrzymujemy atrybut tego obiektu, to otrzymujemy go właśnie takim sposobem, czyli nazwa obiektu "p2", kropka ".", nazwa atrybutu "x".
+
+
+# Teraz odwołujemy się do obiektów drukując je.
+print("Wynik to: " + str(distance(Point(0, 0), Point(3, 4))))
+# Wynik powinien być znów: 5.0
+
+# Teraz zmieńmy funkcje distance w metodę która będzie obliczała odległość między dwoma punktami, ale odwoływać się do niej należy już inaczej. Aby ta funkcja stała się metodą, należy ją umieścić wewnątrz klasy.
+# Powyżej funkcja distance znajduje się na tej samej wysokości wcięć co klasa Point, więc nie jest jej częścią, następuje ona po klasie. Chodzi o formatowanie w pythonie za pomocą wcięć i strukturowanie kodu.
+
+# Import funkcji wyciągania pierwiastka kwadratowego z pakietu math:
+from math import sqrt
+
+
+# Wykonaliśmy klasę:
+class Point:
+    # W tej klasie zdefiniowaliśmy konstruktora ...
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # ... oraz matodę ...
+    def distance(p1, p2):
+        dx = p2.x - p1.x
+        dy = p2.y - p1.y
+        return sqrt(dx*dx + dy*dy)
+
+# Teraz funkcja distance stała się częścią klasy Point, ponieważ są odpowiednie wcięcia, a funkcja distance teraz stała się metodą distance.
+# Gdy staje się metodą, to znaczy że powinna przyjmować w charakterze pierwszego parametru obiekt w którym ta metoda jest wywoływana, który przyjęto nazywać się słowem self.
+# Teraz nie mamy funkcji distance, ponieważ stał on się metodą distance, dlatego jej nie wywołamy do drukowania.
+
+# Teraz dodatkowo zdefiniujmy operację porównania. Nazywa się ona def __eq__.
+    # ... a także operacje aby działała według znaczenia, porównywała obiekty tak chcemy
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+
+# Teraz ta funkcja distance która przyjmuje dwa parametry  "Point(0.0)" oraz "Point(3, 4)"sądząc po zdefiniowaniu, jest metodą, a pierwszy paramert "Point(0.0)" to obiekt w którym jest wywoływana. Drugi parametr to ten który jest przekazywany do tej metody w okrągłych nawiasach czyli  "(Point(3, 4))".
+# Można też to zrobić za pomocą lokalnych zmiennych a i b.
+# Następnie skonstruowaliśmy dwa obiekty:
+a = Point(0, 0)
+b = Point(3, 4)
+# Wywołaliśmy metodę:
+print(a.distance(b))
+# oraz sprawdziliśmy czy działa operacja porównania:
+print(a == b)
+print(a == Point(0, 0))
+
+print("\n------------------------------------------------------------------\n")
+
+# ---- przejrzeż dalej notatki od V. GitHub w zwyż szukając co tutaj można dodać, np listy, pętle itp.
