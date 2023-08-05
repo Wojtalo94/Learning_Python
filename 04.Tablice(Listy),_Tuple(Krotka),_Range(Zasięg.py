@@ -3,8 +3,26 @@ print("01. Tablice (Listy)")
 
 table = [1, 2, 3, 'four', 5.0]
 print(table[0])  # Wyświetli: 1
-table.append(6)  # Dodanie nowego elementu o wartości 6 na końcu tablicy
+table.append(6)  # Dodanie nowego elementu za pomocą funkcji append o wartości 6 na końcu tablicy
 print(table)  # Wyświetli: [1, 2, 3, 'four', 5.0, 6]
+
+print("The length of the List  is: " + str(len(table)))  # w ten sposób poznamy długość tablicy
+
+print("Is element 7 in the List? The answer is: " + str(7 in table)) # sprawdzanie czy dany element znajduje sie w tablicy
+
+# posortujmy teraz nową listę
+
+table = [1, 5, 3, 7, 2, 8]
+print("List before sorting: " + str(table))
+table.sort()  # funkcja sort sortuje listę bez tworzenia nowej listy
+#table2 = sorted(table)  # funkcja sort sortuję listę tworząc nową listę o nazwie table2
+print("List after sorting: " + str(table))
+
+
+
+
+
+
 
 print("\n------------------------------------------------------------------\n")
 
@@ -27,6 +45,14 @@ Tuple_in_Tuple = ((1, 2), (3, 4), (5, 6))
 print(Tuple_in_Tuple)  # Wyświetli: ((1, 2), (3, 4), (5, 6))
 # Tuple są szczególnie użyteczne, gdy chcemy przechować zestaw elementów, które nie będą się zmieniać podczas działania programu. Ich niemutowalność zapewnia, że dane w nich są bezpieczne i niepodatne na przypadkowe zmiany.
 
+# Korzystając z krotek wygodniej jest pisać takie przypisanie:
+(d, m, y) = (10, 12, 2004)
+
+print("Day: " + str(d))
+print("Month: " + str(m))
+print("Year: " + str(y))
+
+
 print("\n------------------------------------------------------------------\n")
 
 print("03. Range (Zasięg)")
@@ -35,6 +61,9 @@ print("03. Range (Zasięg)")
     # range(stop): Generuje sekwencję liczb od 0 do stop - 1.
     # range(start, stop): Generuje sekwencję liczb od start do stop - 1.
     # range(start, stop, step): Generuje sekwencję liczb od start do stop - 1, z krokiem step.
+
+
+print("\nExample 1:\n")
 
 # Przykład 1:
 for i in range(5):
@@ -46,6 +75,8 @@ for i in range(5):
 # 2
 # 3
 # 4
+
+print("\nExample 2:\n")
 
 # Przykład 2:
 for i in range(2, 8):
@@ -59,6 +90,8 @@ for i in range(2, 8):
 # 6
 # 7
 
+print("\nExample 4:\n")
+
 # Przykład 3:
 for i in range(1, 10, 2):
     print(i)
@@ -70,10 +103,12 @@ for i in range(1, 10, 2):
 # 7
 # 9
 
+print("\nExample 5:\n")
+
 # Warto zauważyć, że obiekt range jest "leniwym" generatorem, co oznacza, że nie przechowuje wszystkich liczb w pamięci. Zamiast tego wylicza kolejne liczby na żądanie. Dzięki temu można wykorzystać range do iteracji przez duże zakresy liczb z minimalnym zużyciem pamięci.
 # Jeśli potrzebujesz pełnej listy liczb z zakresu range, możesz użyć funkcji list() do przekształcenia obiektu range w listę:
-lista_liczb = list(range(1, 6))
-print(lista_liczb)  # Wyświetli: [1, 2, 3, 4, 5]
+list_of_numbers = list(range(1, 6))
+print(list_of_numbers)  # Wyświetli: [1, 2, 3, 4, 5]
 # Podsumowując, range jest funkcją do generowania sekwencji liczb całkowitych w określonym zakresie, ale nie jest to struktura danych podobna do listy. Zamiast tego, range to wydajny generator, który generuje liczby na żądanie.
 
 
