@@ -18,11 +18,23 @@ table.sort()  # funkcja sort sortuje listę bez tworzenia nowej listy
 #table2 = sorted(table)  # funkcja sort sortuję listę tworząc nową listę o nazwie table2
 print("List after sorting: " + str(table))
 
+# Funkcja map (wykonuje określoną funkcję na każdym elemencie sekwencji i zwraca wynik w postaci iteratora. Aby uzyskać listę jako wynik, możemy użyć funkcji list())
 
+# Użycie list comprehension:
+numbers = [x for x in range(-5, 7)]
+print(numbers)
 
+# Przekształcenie z użyciem funkcji map:
+numbers = list(map(lambda x: x, range(-5, 7))) # Funkcja map zwraca nie listę, a obiekt szczególnego typu, który w listę można przekształcić za pomocą operacji list.
+print(numbers)
+# W tym przypadku używamy funkcji map wraz z funkcją lambda, która działa identycznie jak list comprehension, zwracając elementy z zakresu od -5 do 6 (włącznie).
+# Należy zauważyć, że funkcja map działa na wszystkich elementach sekwencji i pozwala na bardziej zaawansowane operacje na danych niż prosty zakres. Jednak w przypadku prostych generacji sekwencji, list comprehension jest bardziej czytelne i zalecane. Funkcję map warto wykorzystać w bardziej zaawansowanych sytuacjach, gdy potrzebujemy bardziej skomplikowanych operacji na danych.
 
-
-
+# Funkcja filter (pozwala na filtrowanie elementów sekwencji na podstawie określonego warunku. Działa podobnie do list comprehension z warunkiem, ale zwraca iterator zawierający tylko te elementy, które spełniają warunek)
+# Przekształcenie z użyciem funkcji filter:
+numbers = list(filter(lambda x: x >= 0, range(-5, 7)))
+print(numbers)
+# Funkcja filter jest użyteczna, gdy chcemy wybrać elementy spełniające określony warunek z danej sekwencji. Może to być warunek matematyczny, logiczny, lub oparty na funkcji zwracającej wartość True/False. Funkcja filter pozwala na bardziej zaawansowane filtrowanie niż list comprehension z warunkiem, co czyni ją cennym narzędziem w manipulacji danymi.
 
 print("\n------------------------------------------------------------------\n")
 
@@ -32,7 +44,6 @@ print("02. Tuple (Krotka)")
     # Niemutowalność: Po zdefiniowaniu krotki nie można jej zmieniać, tj. nie można dodawać, usuwać ani zmieniać elementów.
     # Indeksowanie: Krotki są indeksowane, podobnie jak listy, co oznacza, że można uzyskiwać dostęp do ich elementów za pomocą indeksów.
     # Przechowywanie różnych typów: Krotki mogą zawierać różne typy danych, takie jak liczby, napisy, inne krotki itp.
-
 
 Tuple = (1, 'dwa', 3.14)
 print(Tuple[0])  # Wyświetli: 1
@@ -51,7 +62,6 @@ print(Tuple_in_Tuple)  # Wyświetli: ((1, 2), (3, 4), (5, 6))
 print("Day: " + str(d))
 print("Month: " + str(m))
 print("Year: " + str(y))
-
 
 print("\n------------------------------------------------------------------\n")
 
@@ -110,6 +120,3 @@ print("\nExample 5:\n")
 list_of_numbers = list(range(1, 6))
 print(list_of_numbers)  # Wyświetli: [1, 2, 3, 4, 5]
 # Podsumowując, range jest funkcją do generowania sekwencji liczb całkowitych w określonym zakresie, ale nie jest to struktura danych podobna do listy. Zamiast tego, range to wydajny generator, który generuje liczby na żądanie.
-
-
-

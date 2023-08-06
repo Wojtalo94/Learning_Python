@@ -24,4 +24,4 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 print(even_numbers)  # Wynik: [2, 4, 6, 8, 10]
 
-# Warto pamiętać, że konstrukcje lambda są przydatne w prostych przypadkach, gdy funkcja jest krótka i jednorazowego użytku. W bardziej złożonych przypadkach lepiej jest użyć zwykłych funkcji zdefiniowanych za pomocą def, które pozwalają na bardziej rozbudowaną logikę i większą czytelność kodu.
+# Warto pamiętać, że konstrukcje lambda są przydatne w prostych przypadkach, gdy funkcja jest krótka i jednorazowego użytku. W bardziej złożonych przypadkach lepiej jest użyć zwykłych funkcji zdefiniowanych za pomocą def, które pozwalają na bardziej rozbudowaną logikę i większą czytelność kodu
